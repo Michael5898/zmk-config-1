@@ -26,20 +26,20 @@
         sensors = <&left_encoder &right_encoder>;
         triggers-per-rotation = <24>;
 
-        bindings = <&rot_vol C_VOL_DN C_VOL_UP &rot_pg PG_DN PG_UP>;
+        bindings = <&rot_vol C_VOLUME_DOWN C_VOLUME_UP &rot_pg C_PAGE_DOWN C_PAGE_UP>;
     };
 
     behaviors {
         rot_vol: sensor_rotate_vol {
             compatible = "zmk,behavior-sensor-rotate-var";
             #sensor-binding-cells = <2>;
-            bindings = <&kp C_VOL_DN &kp C_VOL_UP>;
+            bindings = <&kp C_VOLUME_DOWN &kp C_VOLUME_UP>;
         };
 
         rot_pg: sensor_rotate_pg {
             compatible = "zmk,behavior-sensor-rotate-var";
             #sensor-binding-cells = <2>;
-            bindings = <&kp PG_DN &kp PG_UP>;
+            bindings = <&kp C_PAGE_DOWN &kp C_PAGE_UP>;
         };
     };
 }
