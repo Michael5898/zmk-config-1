@@ -33,13 +33,13 @@
         rot_vol: sensor_rotate_vol {
             compatible = "zmk,behavior-sensor-rotate-var";
             #sensor-binding-cells = <2>;
-            bindings = <&kp C_VOLUME_DOWN &kp C_VOLUME_UP>;
+            //bindings = <&kp C_VOLUME_DOWN &kp C_VOLUME_UP>;
         };
 
         rot_pg: sensor_rotate_pg {
             compatible = "zmk,behavior-sensor-rotate-var";
             #sensor-binding-cells = <2>;
-            bindings = <&kp C_PAGE_DOWN &kp C_PAGE_UP>;
+            //bindings = <&kp C_PAGE_DOWN &kp C_PAGE_UP>;
         };
     };
 }
