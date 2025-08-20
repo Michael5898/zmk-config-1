@@ -1,6 +1,11 @@
-
-
 / {
+    // Matrix
+    rows = <4>;
+    columns = <3>;
+    row-gpios = <&gpio0 0 GPIO_ACTIVE_LOW>, <&gpio0 1 GPIO_ACTIVE_LOW>,
+                <&gpio0 2 GPIO_ACTIVE_LOW>, <&gpio0 3 GPIO_ACTIVE_LOW>;
+    col-gpios = <&gpio0 4 GPIO_ACTIVE_LOW>, <&gpio0 5 GPIO_ACTIVE_LOW>, <&gpio0 6 GPIO_ACTIVE_LOW>;
+
     encoders {
         compatible = "zmk,encoders";
         #address-cells = <1>;
@@ -27,21 +32,17 @@
         compatible = "zmk,keymap-sensors";
         sensors = <&left_encoder &right_encoder>;
         triggers-per-rotation = <24>;
-
-        //sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
     };
 
     behaviors {
         rot_vol: sensor_rotate_vol {
             compatible = "zmk,behavior-sensor-rotate-var";
             #sensor-binding-cells = <2>;
-            //bindings = <&kp C_VOLUME_DOWN &kp C_VOLUME_UP>;
         };
 
         rot_pg: sensor_rotate_pg {
             compatible = "zmk,behavior-sensor-rotate-var";
             #sensor-binding-cells = <2>;
-            //bindings = <&kp C_PAGE_DOWN &kp C_PAGE_UP>;
         };
     };
-}
+};
