@@ -1,0 +1,27 @@
+/{    
+    encoders {
+        compatible = "zmk,encoders";
+        #address-cells = <1>;
+        #size-cells = <0>;
+
+        left_encoder: encoder_left {
+            compatible = "alps,ec11";
+            a-gpios = <&gpio0 7 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+            b-gpios = <&gpio0 8 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+            steps = <24>;
+            status = "okay";
+        };
+        right_encoder: encoder_right {
+            compatible = "alps,ec11";
+            a-gpios = <&gpio0 9 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+            b-gpios = <&gpio0 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+            steps = <24>;
+            status = "okay";
+        };
+    }
+    sensors: sensors {
+            compatible = "zmk,keymap-sensors";
+            sensors = <&left_encoder &right_encoder>;
+            triggers-per-rotation = <24>;
+    };
+}
