@@ -35,7 +35,7 @@
         rot_vol: sensor_rotate_vol {
             compatible = "zmk,behavior-sensor-rotate-var";
             #sensor-binding-cells = <2>;
-            bindings = <&kp C_VOL_UP>, <&kp C_VOL_DOWN>;
+            bindings = <&kp VOL_UP>, <&kp VOL_DOWN>;
         };
         rot_pg: sensor_rotate_pg {
             compatible = "zmk,behavior-sensor-rotate-var";
