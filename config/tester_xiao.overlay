@@ -21,25 +21,26 @@
         };
     };
 
-sensors: sensors {
-    compatible = "zmk,keymap-sensors";
-    sensors = <&left_encoder &right_encoder>;
-    triggers-per-rotation = <24>;
+    sensors: sensors {
+        compatible = "zmk,keymap-sensors";
+        sensors = <&left_encoder &right_encoder>;
+        triggers-per-rotation = <24>;
 
-    bindings = <&rot_vol C_VOL_DN &rot_vol C_VOL_UP
+        bindings = <&rot_vol C_VOL_DN &rot_vol C_VOL_UP
                 &rot_pg PG_DN     &rot_pg PG_UP>;
-};
+    };
 
     behaviors {
         rot_vol: sensor_rotate_vol {
             compatible = "zmk,behavior-sensor-rotate-var";
             #sensor-binding-cells = <2>;
-            bindings = <&kp &kp>;
-        };
+            bindings = <&kp C_VOL_DN &kp C_VOL_UP>;
+    };
+
         rot_pg: sensor_rotate_pg {
             compatible = "zmk,behavior-sensor-rotate-var";
             #sensor-binding-cells = <2>;
-            bindings = <&kp &kp>;
+            bindings = <&kp PG_DN &kp PG_UP>;
         };
     };
-};
+}
