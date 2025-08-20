@@ -18,8 +18,8 @@
                 //
                 //  HeadMuteDC  DC-Mute     Undo
 
-            &left_encoder_cw  &kp C_VOL_UP     &right_encoder_cw  &kp C_PGUP
-            &left_encoder_ccw &kp C_VOL_DOWN   &right_encoder_ccw &kp C_PGDN
+                &left_encoder_cw  &kp C_VOL_UP     &right_encoder_cw  &kp C_PGUP
+                &left_encoder_ccw &kp C_VOL_DOWN   &right_encoder_ccw &kp C_PGDN
                             &kp C_MUTE      &tog 1
 
                     &kp C_PREV  &kp C_PP    &kp C_NEXT
@@ -44,8 +44,8 @@
             //      7           8           9
             bindings = <
             
-        &left_encoder_cw  &kp C_VOL_UP        &right_encoder_cw  &kp C_PGUP
-        &left_encoder_ccw &kp C_VOL_DOWN      &right_encoder_ccw &kp C_PGDN
+            &left_encoder_cw  &kp C_VOL_UP        &right_encoder_cw  &kp C_PGUP
+            &left_encoder_ccw &kp C_VOL_DOWN      &right_encoder_ccw &kp C_PGDN
                         &kp C_MUTE         &tog 1
 
                 &kp 1        &kp 2         &kp 3
