@@ -26,8 +26,7 @@
         sensors = <&left_encoder &right_encoder>;
         triggers-per-rotation = <24>;
 
-        bindings = <&rot_vol C_VOL_DN C_VOL_UP>,
-                   <&rot_pg PG_DN PG_UP>;
+        bindings = <&rot_vol C_VOL_DN C_VOL_UP &rot_pg PG_DN PG_UP>;
     };
 
     behaviors {
