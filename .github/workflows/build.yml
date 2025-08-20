@@ -13,15 +13,22 @@ jobs:
       - name: Checkout user config
         uses: actions/checkout@v3
 
-      - name: Set up dependencies
-        uses: zmkfirmware/setup-zmk@v1
+      - name: Install dependencies
+        run: |
+          sudo apt update
+          sudo apt install -y python3-pip git cmake ninja-build gperf ccache dfu-util wget \
+            device-tree-compiler libncurses-dev flex bison libffi-dev libssl-dev \
+            python3-dev python3-setuptools python3-wheel xz-utils file make gcc g++ \
+            unzip tar zlib1g-dev
 
       - name: Clone ZMK fork
         run: |
-          git clone https://github.com/Michael5898/zmk zmk
+          git clone https://github.com/Michael5898/zmk
           cd zmk
           west init -l app
           west update
+          west zephyr-export
+          pip3 install -r zmk/app/requirements.txt
 
       - name: Build firmware
         run: |
