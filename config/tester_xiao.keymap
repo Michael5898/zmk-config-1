@@ -25,7 +25,7 @@
 
                     &kp LCTRL(C)   &kp LCTRL(V)   &kp LCTRL(X)
 
-                  &kp LCTRL(LSHFT(M)) &kp LCTRL(LSHFT(D)) &kp LCTRL(Z)
+                  &kp LC(LS(M)) &kp LC(LS(D)) &kp LC(Z)
 
             >;
 
