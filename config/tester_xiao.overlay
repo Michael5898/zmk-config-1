@@ -1,4 +1,4 @@
-/{    
+/ {
     encoders {
         compatible = "zmk,encoders";
         #address-cells = <1>;
@@ -11,6 +11,7 @@
             steps = <24>;
             status = "okay";
         };
+
         right_encoder: encoder_right {
             compatible = "alps,ec11";
             a-gpios = <&gpio0 9 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
@@ -19,9 +20,44 @@
             status = "okay";
         };
     };
+
     sensors: sensors {
-            compatible = "zmk,keymap-sensors";
-            sensors = <&left_encoder &right_encoder>;
-            triggers-per-rotation = <24>;
+        compatible = "zmk,keymap-sensors";
+        sensors = <&left_encoder &right_encoder>;
+        triggers-per-rotation = <24>;
+
+        // Reihenfolge: links CCW, links CW, rechts CCW, rechts CW
+        bindings = <&encoder_vol_down &encoder_vol_up
+                    &encoder_pgdn     &encoder_pgup>;
+    };
+
+    behaviors {
+        encoder_vol_down: encoder_vol_down {
+            compatible = "zmk,behavior-tap";
+            label = "ENCODER VOL-";
+            #binding-cells = <0>;
+            bindings = <&kp C_VOL_DOWN>;
+        };
+
+        encoder_vol_up: encoder_vol_up {
+            compatible = "zmk,behavior-tap";
+            label = "ENCODER VOL+";
+            #binding-cells = <0>;
+            bindings = <&kp C_VOL_UP>;
+        };
+
+        encoder_pgdn: encoder_pgdn {
+            compatible = "zmk,behavior-tap";
+            label = "ENCODER PGDN";
+            #binding-cells = <0>;
+            bindings = <&kp PGDN>;
+        };
+
+        encoder_pgup: encoder_pgup {
+            compatible = "zmk,behavior-tap";
+            label = "ENCODER PGUP";
+            #binding-cells = <0>;
+            bindings = <&kp PGUP>;
+        };
     };
 };
