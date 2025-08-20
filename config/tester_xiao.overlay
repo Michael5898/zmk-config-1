@@ -21,15 +21,14 @@
         };
     };
 
-    sensors: sensors {
-        compatible = "zmk,keymap-sensors";
-        sensors = <&left_encoder &right_encoder>;
-        triggers-per-rotation = <24>;
+sensors: sensors {
+    compatible = "zmk,keymap-sensors";
+    sensors = <&left_encoder &right_encoder>;
+    triggers-per-rotation = <24>;
 
-        // Reihenfolge: links CCW, links CW, rechts CCW, rechts CW
-        bindings = <&encoder_vol_down &encoder_vol_up
-                    &encoder_pgdn     &encoder_pgup>;
-    };
+    bindings = <&rot_vol C_VOL_DN &rot_vol C_VOL_UP
+                &rot_pg PG_DN     &rot_pg PG_UP>;
+};
 
     behaviors {
         rot_vol: sensor_rotate_vol {
