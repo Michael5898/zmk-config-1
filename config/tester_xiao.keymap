@@ -42,8 +42,8 @@
             //
             //      7           8           9
             bindings = <
-                &rot_vol C_VOL_UP C_VOL_DN
-                &rot_pg PG_UP PG_DN
+                &rot_vol C_VOL_UP &rot_vol C_VOL_DN
+                &rot_pg PG_UP &rot_pg PG_DN
                         &kp C_MUTE         &tog 1
 
                 &kp 1        &kp 2         &kp 3
