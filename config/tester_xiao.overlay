@@ -36,28 +36,28 @@
             compatible = "zmk,behavior-tap";
             label = "ENCODER VOL-";
             #binding-cells = <0>;
-            bindings = <&kp C_VOL_DOWN>;
+            sensor-bindings = <&kp C_VOL_DOWN>;
         };
 
         encoder_vol_up: encoder_vol_up {
             compatible = "zmk,behavior-tap";
             label = "ENCODER VOL+";
             #binding-cells = <0>;
-            bindings = <&kp C_VOL_UP>;
+            sensor-bindings = <&kp C_VOL_UP>;
         };
 
         encoder_pgdn: encoder_pgdn {
             compatible = "zmk,behavior-tap";
             label = "ENCODER PGDN";
             #binding-cells = <0>;
-            bindings = <&kp PGDN>;
+            sensor-bindings = <&kp PGDN>;
         };
 
         encoder_pgup: encoder_pgup {
             compatible = "zmk,behavior-tap";
             label = "ENCODER PGUP";
             #binding-cells = <0>;
-            bindings = <&kp PGUP>;
+            sensor-bindings = <&kp PGUP>;
         };
     };
 };
