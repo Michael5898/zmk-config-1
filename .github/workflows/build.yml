@@ -1,6 +1,28 @@
 name: Build ZMK firmware
-on: [push, pull_request, workflow_dispatch]
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
 
 jobs:
   build:
-    uses: https://github.com/Michael5898/zmk/.github/workflows/build-user-config.yml@v0.3
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout user config
+        uses: actions/checkout@v3
+
+      - name: Set up dependencies
+        uses: zmkfirmware/setup-zmk@v1
+
+      - name: Clone ZMK fork
+        run: |
+          git clone https://github.com/Michael5898/zmk zmk
+          cd zmk
+          west init -l app
+          west update
+
+      - name: Build firmware
+        run: |
+          west build -s zmk/app -b nice_nano_v2 -- -DZMK_CONFIG=${{ github.workspace }}
