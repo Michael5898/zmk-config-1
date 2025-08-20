@@ -17,8 +17,8 @@
                 //  Copy        Paste       Cut
                 //
                 //  HeadMuteDC  DC-Mute     Undo
-                bindings = <&rot_vol C_VOL_UP C_VOL_DN>;
-                bindings = <&rot_pg PG_UP PG_DN>;
+                <&rot_vol C_VOL_UP C_VOL_DN>;
+                <&rot_pg PG_UP PG_DN>;
                             &kp C_MUTE      &tog 1
 
                     &kp C_PREV  &kp C_PP    &kp C_NEXT
@@ -42,8 +42,8 @@
             //
             //      7           8           9
             bindings = <
-                bindings = <&rot_vol C_VOL_UP C_VOL_DN>;
-                bindings = <&rot_pg PG_UP PG_DN>;
+                <&rot_vol C_VOL_UP C_VOL_DN>;
+                <&rot_pg PG_UP PG_DN>;
                         &kp C_MUTE         &tog 1
 
                 &kp 1        &kp 2         &kp 3
