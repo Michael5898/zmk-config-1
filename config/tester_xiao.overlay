@@ -32,32 +32,15 @@
     };
 
     behaviors {
-        encoder_vol_down: encoder_vol_down {
-            compatible = "zmk,behavior-tap";
-            label = "ENCODER VOL-";
-            #binding-cells = <0>;
-            sensor-bindings = <&kp C_VOL_DOWN>;
+        rot_vol: sensor_rotate_vol {
+            compatible = "zmk,behavior-sensor-rotate-var";
+            #sensor-binding-cells = <2>;
+            bindings = <&kp C_VOL_UP>, <&kp C_VOL_DOWN>;
         };
-
-        encoder_vol_up: encoder_vol_up {
-            compatible = "zmk,behavior-tap";
-            label = "ENCODER VOL+";
-            #binding-cells = <0>;
-            sensor-bindings = <&kp C_VOL_UP>;
-        };
-
-        encoder_pgdn: encoder_pgdn {
-            compatible = "zmk,behavior-tap";
-            label = "ENCODER PGDN";
-            #binding-cells = <0>;
-            sensor-bindings = <&kp PGDN>;
-        };
-
-        encoder_pgup: encoder_pgup {
-            compatible = "zmk,behavior-tap";
-            label = "ENCODER PGUP";
-            #binding-cells = <0>;
-            sensor-bindings = <&kp PGUP>;
+        rot_pg: sensor_rotate_pg {
+            compatible = "zmk,behavior-sensor-rotate-var";
+            #sensor-binding-cells = <2>;
+            bindings = <&kp PG_UP>, <&kp PG_DOWN>;
         };
     };
 };
