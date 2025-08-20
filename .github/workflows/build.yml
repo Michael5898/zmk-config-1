@@ -1,28 +1,9 @@
-name: Reusable user config build
+name: Build ZMK firmware
 
 on:
-  workflow_call:
-    inputs:
-      build_matrix_path:
-        description: "Path to the build matrix file"
-        default: "build.yaml"
-        required: false
-        type: string
-      config_path:
-        description: "Path to the config directory"
-        default: "config"
-        required: false
-        type: string
-      fallback_binary:
-        description: "Fallback binary format, if no *.uf2 file was built"
-        default: "bin"
-        required: false
-        type: string
-      archive_name:
-        description: "Archive output file name"
-        default: "firmware"
-        required: false
-        type: string
+  push:
+  pull_request:
+  workflow_dispatch:
 
 jobs:
   matrix:
@@ -49,7 +30,7 @@ jobs:
       fail-fast: false
       matrix: ${{ fromJson(needs.matrix.outputs.build_matrix) }}
     steps:
-      - name: Checkout
+      - name: Checkout user config
         uses: actions/checkout@v4
 
       - name: Create build directory
@@ -112,9 +93,11 @@ jobs:
         working-directory: ${{ env.base_dir }}
         run: west init -l "${{ env.base_dir }}/${{ inputs.config_path }}"
 
-      - name: West Update
+      - name: West Update (with submodules)
         working-directory: ${{ env.base_dir }}
-        run: west update --fetch-opt=--filter=tree:0
+        run: |
+          west update --fetch-opt=--filter=tree:0
+          git submodule update --init --recursive
 
       - name: West Zephyr export
         working-directory: ${{ env.base_dir }}
@@ -123,7 +106,7 @@ jobs:
       - name: West Build (${{ env.display_name }})
         working-directory: ${{ env.base_dir }}
         shell: sh -x {0}
-        run: west build -s zmk/app -d "${{ env.build_dir }}" -b "${{ matrix.board }}" ${{ env.extra_west_args }} -- -DZMK_CONFIG=${{ env.base_dir }}/${{ inputs.config_path }} ${{ env.extra_cmake_args }} ${{ matrix.cmake-args }}
+        run: west build -s zmk/app -d "${{ env.build_dir }}" -p always -b "${{ matrix.board }}" ${{ env.extra_west_args }} -- -DZMK_CONFIG=${{ env.base_dir }}/${{ inputs.config_path }} ${{ env.extra_cmake_args }} ${{ matrix.cmake-args }}
 
       - name: ${{ env.display_name }} Kconfig file
         run: |
