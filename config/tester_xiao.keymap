@@ -7,6 +7,7 @@
 
         default_layer {
             bindings = <
+            label = "default_layer";
                 //-----------------------------
                 //     empty   encoder1   encoder2
                 //
@@ -15,7 +16,7 @@
                 //  Copy        Paste     Cut
                 //
                 //  HeadMuteDC  DC-Mute   Undo
-                &kp C_MUTE    &tog 1
+                &none         &kp C_MUTE    &tog 1
                 &kp C_PREV    &kp C_PP     &kp C_NEXT
                 &kp LCTRL(C)  &kp LCTRL(V) &kp LCTRL(X)
                 &kp LC(LS(M)) &kp LC(LS(D)) &kp LC(Z)
@@ -26,7 +27,8 @@
         num { // Layer 1
             display-name = "NUM";
             bindings = <
-                &kp C_MUTE    &tog 1
+            label = "num";
+                &none         &kp C_MUTE    &tog 1
                 &kp 1         &kp 2         &kp 3
                 &kp 4         &kp 5         &kp 6
                 &kp 7         &kp 8         &kp 9
