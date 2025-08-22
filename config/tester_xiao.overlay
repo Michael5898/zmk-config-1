@@ -1,3 +1,5 @@
+#include <zephyr/dt-bindings/gpio/gpio.h>
+
 / {
     chosen {
         zmk,kscan = &kscan0;
