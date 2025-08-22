@@ -7,7 +7,7 @@
 
         default_layer {
             bindings = <
-            label = "default_layer";
+            //label = "default_layer";
                 //-----------------------------
                 //     empty   encoder1   encoder2
                 //
@@ -27,7 +27,7 @@
         num { // Layer 1
             display-name = "NUM";
             bindings = <
-            label = "num";
+            //label = "num";
                 &none         &kp C_MUTE    &tog 1
                 &kp 1         &kp 2         &kp 3
                 &kp 4         &kp 5         &kp 6
