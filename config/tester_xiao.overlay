@@ -5,14 +5,12 @@
     chosen {
         zmk,kscan = &kscan0;
         zmk,physical-layout = &physical_layout0;
-        zephyr,display = &oled;
     };
 
     kscan0: kscan0 {
         compatible = "zmk,kscan-gpio-matrix";
         diode-direction = "col2row";
         label = "default_kscan";
-        wakeup-source;
 
         col-gpios = <
             &gpio0 4 GPIO_ACTIVE_HIGH  /* D4 */
