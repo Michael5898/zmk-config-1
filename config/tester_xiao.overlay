@@ -1,48 +1,68 @@
 / {
-    // Matrix
-    rows = <4>;
-    columns = <3>;
-    row-gpios = <&gpio0 0 GPIO_ACTIVE_LOW>, <&gpio0 1 GPIO_ACTIVE_LOW>,
-                <&gpio0 2 GPIO_ACTIVE_LOW>, <&gpio0 3 GPIO_ACTIVE_LOW>;
-    col-gpios = <&gpio0 4 GPIO_ACTIVE_LOW>, <&gpio0 5 GPIO_ACTIVE_LOW>, <&gpio0 6 GPIO_ACTIVE_LOW>;
+    chosen {
+        zmk,kscan = &kscan0;
+        zmk,physical-layout = &physical_layout0;
+        zephyr,display = &oled;
+    };
 
-    encoders {
-        compatible = "zmk,encoders";
-        #address-cells = <1>;
-        #size-cells = <0>;
+    kscan0: kscan0 {
+        compatible = "zmk,kscan-gpio-matrix";
+        diode-direction = "col2row";
+        label = "default_kscan";
+        wakeup-source;
 
-        left_encoder: encoder_left {
-            compatible = "alps,ec11";
-            a-gpios = <&gpio0 7 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
-            b-gpios = <&gpio0 8 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
-            steps = <24>;
-            status = "okay";
-        };
+        col-gpios = <
+            &gpio0 4 GPIO_ACTIVE_HIGH  /* D4 */
+            &gpio1 5  GPIO_ACTIVE_HIGH  /* D5 */
+            &gpio0 6 GPIO_ACTIVE_HIGH  /* D6 */
+        >;
 
-        right_encoder: encoder_right {
-            compatible = "alps,ec11";
-            a-gpios = <&gpio0 9 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
-            b-gpios = <&gpio0 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
-            steps = <24>;
-            status = "okay";
-        };
+        row-gpios = <
+            &gpio0 0 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)  /* D0 */
+            &gpio0 1 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)  /* D1 */
+            &gpio0 2 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)  /* D2 */
+            &gpio0 3 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)  /* D3 */
+        >;
+    };
+
+    default_transform: keymap_transform0 {
+        compatible = "zmk,matrix-transform";
+        columns = <3>;
+        rows = <4>;
+        map = <
+                    RC(0,1) RC(0,2)
+            RC(1,0) RC(1,1) RC(1,2)
+            RC(2,0) RC(2,1) RC(2,2)
+            RC(3,0) RC(3,1) RC(3,2)
+        >;
+    };
+
+    physical_layout0: physical_layout_0 {
+        compatible = "zmk,physical-layout";
+        display-name = "Default Layout";
+        kscan = <&kscan0>;
+        transform = <&default_transform>;
+    };
+
+    lencoder: lencoder {
+        compatible = "alps,ec11";
+        a-gpios = <&gpio0 7 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;  /* D7 */
+        b-gpios = <&gpio0 8 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;  /* D8 */
+        steps = <24>;
+        status = "okay";
+    };
+
+    rencoder: rencoder {
+        compatible = "alps,ec11";
+        a-gpios = <&gpio0 9 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;  /* D9 */
+        b-gpios = <&gpio0 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;  /* D10 */
+        steps = <24>;
+        status = "okay";
     };
 
     sensors: sensors {
         compatible = "zmk,keymap-sensors";
-        sensors = <&left_encoder &right_encoder>;
-        triggers-per-rotation = <24>;
-    };
-
-    behaviors {
-        rot_vol: sensor_rotate_vol {
-            compatible = "zmk,behavior-sensor-rotate-var";
-            #sensor-binding-cells = <2>;
-        };
-
-        rot_pg: sensor_rotate_pg {
-            compatible = "zmk,behavior-sensor-rotate-var";
-            #sensor-binding-cells = <2>;
-        };
+        sensors = <&lencoder>, <&rencoder>;
+        triggers-per-rotation = <20>;
     };
 };
