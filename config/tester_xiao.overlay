@@ -7,7 +7,7 @@
         zmk,physical-layout = &physical_layout0;
     };
 
-    kscan0: kscan_matrix {
+    kscan0: kscan0_matrix {
         compatible = "zmk,kscan-gpio-matrix";
         diode-direction = "col2row";
         //label = "default_kscan";
