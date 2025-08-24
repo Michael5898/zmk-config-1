@@ -20,7 +20,7 @@
                 &none         &kp C_MUTE    &tog 1
                 &kp C_PREV    &kp C_PP      &kp C_NEXT
                 &kp LC(C)     &kp LC(V)     &kp LC(X)
-                &kp LC(LS(M)) &kp LC(LS(D)) &lt 2 LC(Z)
+                &kp LC(LS(M)) &kp LC(LS(D)) &lt 2 &kp LC(Z)
             >;
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
         };
@@ -41,10 +41,10 @@
             display-name = "Bluetooth";
             bindings = <
                 &none       &kp C_MUTE      &none
-                &BT_CLR     &BT_CLR_ALL     &none
-                &BT_PRV     &none           &BT_NXT
+                &bt BT_CLR  &bt BT_CLR_ALL  &none
+                &bt BT_PRV  &none           &bt BT_NXT
                 &none       &none           &lt 2 LC(Z)
-
-        }
+            >;
+        };
     };
 };
