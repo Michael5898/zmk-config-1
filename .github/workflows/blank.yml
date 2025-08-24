@@ -1,0 +1,32 @@
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup Zephyr + west
+        run: |
+          pip install west
+          west init -l app
+          west update
+
+      - name: Build firmware
+        run: |
+          west build -b seeeduino_xiao_ble -- -DSHIELD=tester_xiao
+
+      - name: Install uf2 converter
+        run: |
+          pip install adafruit-nrfutil
+          curl -L https://raw.githubusercontent.com/microsoft/uf2/master/utils/uf2conv.py -o uf2conv.py
+
+      - name: Convert HEX to UF2
+        run: |
+          python uf2conv.py build/zephyr/zephyr.hex \
+            --family 0xADA52840 \
+            --output tester_xiao-seeeduino_xiao_ble-zmk.uf2
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: firmware
+          path: tester_xiao-seeeduino_xiao_ble-zmk.uf2
