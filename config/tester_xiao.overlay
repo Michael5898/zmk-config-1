@@ -10,17 +10,6 @@
         zmk,physical-layout = &physical_layout0;
     };
 
-    &usbd {
-    status = "okay";
-    };
-
-    &usb_cdc_acm0 {
-    status = "okay";
-    };
-
-    &zmk_hid {
-    status = "okay";
-    };
 
     kscan: kscan_matrix {
         compatible = "zmk,kscan-gpio-matrix";
@@ -92,4 +81,16 @@
             display-name = "Layer-Tap-BLE";
         };
     };
+};
+
+&usbd {
+status = "okay";
+};
+
+&usb_cdc_acm0 {
+status = "okay";
+};
+
+&zmk_hid {
+status = "okay";
 };
