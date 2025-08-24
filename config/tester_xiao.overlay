@@ -91,6 +91,6 @@ status = "okay";
 //status = "okay";
 //};
 
-&zmk_hid {
-status = "okay";
-};
+//&zmk_hid {
+//status = "okay";
+//};
