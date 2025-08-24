@@ -1,5 +1,6 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/bt.h>
 
 / {
     keymap {
@@ -17,9 +18,9 @@
                 //
                 //  HeadMuteDC  DC-Mute   Undo
                 &none         &kp C_MUTE    &tog 1
-                &kp C_PREV    &kp C_PP     &kp C_NEXT
-                &kp LC(C)  &kp LC(V) &kp LC(X)
-                &kp LC(LS(M)) &kp LC(LS(D)) &kp LC(Z)
+                &kp C_PREV    &kp C_PP      &kp C_NEXT
+                &kp LC(C)     &kp LC(V)     &kp LC(X)
+                &kp LC(LS(M)) &kp LC(LS(D)) &lt 2 LC(Z)
             >;
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
         };
@@ -28,12 +29,22 @@
             display-name = "NUM";
             bindings = <
             //label = "num";
-                &none         &kp C_MUTE    &tog 1
+                &none         &kp C_MUTE    &tog 0
                 &kp 1         &kp 2         &kp 3
                 &kp 4         &kp 5         &kp 6
                 &kp 7         &kp 8         &kp 9
             >;
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
         };
+
+        ble {
+            display-name = "Bluetooth";
+            bindings = <
+                &none       &kp C_MUTE      &none
+                &BT_CLR     &BT_CLR_ALL     &none
+                &BT_PRV     &none           &BT_NXT
+                &none       &none           &lt 2 LC(Z)
+
+        }
     };
 };
