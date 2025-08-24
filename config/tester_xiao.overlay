@@ -87,9 +87,9 @@
 status = "okay";
 };
 
-&usb_cdc_acm0 {
-status = "okay";
-};
+//&usb_cdc_acm0 {
+//status = "okay";
+//};
 
 &zmk_hid {
 status = "okay";
