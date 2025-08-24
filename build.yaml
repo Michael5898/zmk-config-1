@@ -19,5 +19,5 @@
 #
 ---
 include:
-  - board: seeed_xiao_nrf52840
+  - board: seeedunio_xiao_ble
     shield: tester_xiao
