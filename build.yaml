@@ -19,5 +19,5 @@
 #
 ---
 include:
-  - board: seeeduino_xiao_ble
+  - board: seeeduino_xiao_nrf52840
     shield: tester_xiao
