@@ -1,4 +1,5 @@
 #include <dt-bindings/zmk/matrix_transform.h>
+#include <zephyr/dt-bindings/gpio/gpio.h>
 
 / {
     physical_layout0: physical_layout_0 { // First physical layout, use different naming for other layouts
