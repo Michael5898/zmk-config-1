@@ -1,4 +1,4 @@
-name: Build ZMK firmware ChatGPT Test 1
+name: Build ZMK firmware ChatGPT Test 2
 
 on:
   push:
