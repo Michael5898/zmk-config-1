@@ -1,4 +1,4 @@
-name: Build ZMK Firmware
+name: Build ZMK Firmware ChatGPT
 
 on:
   push:
