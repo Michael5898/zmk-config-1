@@ -4,11 +4,3 @@ on: [push, pull_request, workflow_dispatch]
 jobs:
   build:
     uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@v0.3
-    with:
-      build_matrix: |
-        [
-          {
-            "board": "seeed_xiao_nrf52840",
-            "shield": "tester_xiao"
-          }
-        ]
