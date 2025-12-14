@@ -5,6 +5,7 @@
 / {
     keymap {
         compatible = "zmk,keymap";
+        label = "TESTER_XIAO_KEYMAP";
 
         default_layer {
             bindings = <
