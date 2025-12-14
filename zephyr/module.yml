@@ -1,6 +1,5 @@
+name: tester_xiao
+
 build:
-  cmake: .
-  kconfig: Kconfig
   settings:
     board_root: .
-    dts_root: .
