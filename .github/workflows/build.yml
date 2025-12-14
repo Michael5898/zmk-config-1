@@ -1,6 +1,31 @@
-name: Build ZMK firmware
-on: [push, pull_request, workflow_dispatch]
+name: Build ZMK Firmware
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+  workflow_dispatch:
 
 jobs:
   build:
-    uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@v0.3
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Dein Config-Repo auschecken
+      - name: Checkout config
+        uses: actions/checkout@v4
+
+      # 2. ZMK offiziell bauen (inkl. west, Zephyr, Toolchain)
+      - name: Build firmware
+        uses: zmkfirmware/zmk-build-action@v1
+        with:
+          board: seeed_xiao_nrf52840
+          shield: tester_xiao
+
+      # 3. UF2 als Artifact hochladen
+      - name: Upload firmware
+        uses: actions/upload-artifact@v4
+        with:
+          name: tester_xiao_firmware
+          path: build/zephyr/zmk.uf2
