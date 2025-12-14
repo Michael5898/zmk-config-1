@@ -1,10 +1,5 @@
-name: zmk-keyboard-<tester_xiao>
+name: zmk-keyboard-tester-xiao
 
-file_format: "1"
-id: tester_xiao
-name: tester_xiao
-type: shield
-requires: [xiao_ble]
-features:
-  - keys
-  - encoders
+build:
+  settings:
+    board_root: .
