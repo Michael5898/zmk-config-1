@@ -7,11 +7,11 @@
         kscan = <&kscan0>; // Label of the kscan node, optional if all layouts use the same
         transform = <&default_transform>; // Label of the matrix transform for this layout
     };
-};
 
-/ {
     chosen {
-        zmk,kscan = &default_kscan;
+        zmk,kscan = &kscan0;
+        zmk,physical-layout = &physical_layout0;
+
     };
 
     kscan0: kscan0 {
@@ -73,9 +73,6 @@
         };
     };
 
-};
-
-/ {
     default_transform: keymap_transform0 {
         compatible = "zmk,matrix-transform";
         columns = <3>; // Length of the "col-gpios" array
@@ -91,11 +88,17 @@
             RC(3,0) RC(3,1) RC(3,2)
         >;
     };
-};
 
-/ {
     chosen {
         zmk,physical-layout = &physical_layout0;
         // Other chosen items
     };
+};
+
+&usbd {
+    status = "okay";
+};
+
+&zmk_hid {
+    status = "okay";
 };
