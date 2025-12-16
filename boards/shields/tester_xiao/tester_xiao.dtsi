@@ -11,7 +11,7 @@
  / {
     chosen {
         zmk,kscan = &kscan0;
-        zmk,physical-layout = &tester_xiao_layout;
+        zmk,physical-layout = &3x4;
     };
 
     three_column_transform: keymap_transform_0 {
