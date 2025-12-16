@@ -1,105 +1,17 @@
-#include <dt-bindings/zmk/matrix_transform.h>
-#include <zephyr/dt-bindings/gpio/gpio.h>
+#include "tester_xiao.dtsi"
 
-/ {
-    physical_layout0: physical_layout_0 { // First physical layout, use different naming for other layouts
-        compatible = "zmk,physical-layout";
-        display-name = "Default Layout";
-        kscan = <&kscan0>; // Label of the kscan node, optional if all layouts use the same
-        transform = <&default_transform>; // Label of the matrix transform for this layout
-    };
-
-    chosen {
-        zmk,kscan = &kscan0;
-        zmk,physical-layout = &physical_layout0;
-
-    };
-
-    kscan0: kscan0 {
-        compatible = "zmk,kscan-gpio-matrix";
-        diode-direction = "row2col";
-        wakeup-source;
-
-        col-gpios
-            = <&xiao_d 4 GPIO_ACTIVE_HIGH>
-            , <&xiao_d 5 GPIO_ACTIVE_HIGH>
-            , <&xiao_d 6 GPIO_ACTIVE_HIGH>
-            ;
-
-        row-gpios
-            = <&xiao_d 0 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-            , <&xiao_d 1 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-            , <&xiao_d 2 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-            , <&xiao_d 3 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-            ;
-    };
-
-    encoders {
-        compatible = "zmk,encoders";
-        #address-cells = <1>;
-        #size-cells = <0>;
-
-        left_encoder: encoder_left {
-            compatible = "alps,ec11";
-            a-gpios = <&xiao_d 7 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
-            b-gpios = <&xiao_d 8 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
-            steps = <24>;
-            status = "okay";
-        };
-
-        right_encoder: encoder_right {
-            compatible = "alps,ec11";
-            a-gpios = <&xiao_d 9 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
-            b-gpios = <&xiao_d 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
-            steps = <24>;
-            status = "okay";
-        };
-    };
-    
-    sensors: sensors {
-        compatible = "zmk,keymap-sensors";
-        sensors = <&left_encoder &right_encoder>;
-        triggers-per-rotation = <24>;
-    };
-
-    behaviors {
-        rot_vol: sensor_rotate_vol {
-            compatible = "zmk,behavior-sensor-rotate-var";
-            #sensor-binding-cells = <2>;
-        };
-
-        rot_pg: sensor_rotate_pg {
-            compatible = "zmk,behavior-sensor-rotate-var";
-            #sensor-binding-cells = <2>;
-        };
-    };
-
-    default_transform: keymap_transform0 {
-        compatible = "zmk,matrix-transform";
-        columns = <3>; // Length of the "col-gpios" array
-        rows = <4>; // Length of the "row-gpios" array
-        map = <
-        //   Key 1 | Key 2 | Key 3
-            RC(0,0) RC(0,1) RC(0,2)
-        //   Key 4 | Key 5 | Key 6
-            RC(1,0) RC(1,1) RC(1,2)
-        //   Key 7 | Key 8 | Key 9
-            RC(2,0) RC(2,1) RC(2,2)
-
-            RC(3,0) RC(3,1) RC(3,2)
-        >;
-    };
-
-    chosen {
-        zmk,physical-layout = &physical_layout0;
-        // Other chosen items
-    };
+&kscan0 {
+    col-gpios
+        = <&xiao_d 4 GPIO_ACTIVE_HIGH>
+        , <&xiao_d 5 GPIO_ACTIVE_HIGH>
+        , <&xiao_d 6 GPIO_ACTIVE_HIGH>
+        ;
 };
 
-&usbd {
+&left_encoder {
     status = "okay";
 };
 
-&zmk_hid {
+&right_encoder {
     status = "okay";
 };

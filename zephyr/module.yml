@@ -1,5 +1,4 @@
-name: tester_xiao
-
 build:
   settings:
     board_root: .
+    dts_root: .

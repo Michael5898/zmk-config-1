@@ -1,2 +1,0 @@
-config ZMK_SHIELD_tester_xiao
-    def_bool y

@@ -1,0 +1,35 @@
+#include <layouts/corne_xiao/position_map.dtsi>
+#include <physical_layouts.dtsi>
+
+/ {
+    tester_xiao_layout: tester_xiao_layout {
+        compatible = "zmk,physical-layout";
+        display-name = "3x4";
+
+        keys  //                     w   h    x    y     rot    rx    ry
+            = <&key_physical_attrs 100 100    0   50       0     0     0>
+            , <&key_physical_attrs 100 100    0   100      0     0     0>
+            , <&key_physical_attrs 100 100    0   150      0     0     0>
+            , <&key_physical_attrs 100 100    0   200      0     0     0>
+            , <&key_physical_attrs 100 100   50   50       0     0     0>
+            , <&key_physical_attrs 100 100   50   100      0     0     0>
+            , <&key_physical_attrs 100 100   50   150      0     0     0>
+            , <&key_physical_attrs 100 100   50   200      0     0     0>
+            , <&key_physical_attrs 100 100  100   50       0     0     0>
+            , <&key_physical_attrs 100 100  100   100      0     0     0>
+            , <&key_physical_attrs 100 100  100   150      0     0     0>
+            , <&key_physical_attrs 100 100  100   200      0     0     0>
+        ;
+    };
+};
+
+&layouts_tester_xiao_position_map {
+    tester_xiao_posmap: three {
+        physical-layout = <&tester_xiao_layout>;
+        positions
+            = <0  1  2>
+            , <3  4  5>
+            , <6  7  8>
+            , <9  10 11>;
+    };
+};
