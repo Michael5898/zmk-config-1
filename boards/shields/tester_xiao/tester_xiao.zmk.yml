@@ -3,7 +3,7 @@ id: macropad
 name: Macropad
 type: shield
 url: https://github.com/Michael5898/zmk-config-1/
-requires: [seeeduino_xiao_ble]
+requires: [seeduino_xiao_nrf52840_plus]
 features:
   - keys
   - encoder
