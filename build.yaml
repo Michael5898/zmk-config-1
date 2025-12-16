@@ -19,5 +19,5 @@
 #
 ---
 include:
-  - board: xiao_ble
+  - board: seeduino_xiao_ble
     shield: tester_xiao
