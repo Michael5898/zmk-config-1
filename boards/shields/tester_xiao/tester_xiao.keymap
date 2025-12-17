@@ -55,6 +55,10 @@
                 &kp J &kp K &kp L
             >;
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
-        }
+        };
     };
+        extra1 {
+            display-name = "extra1";
+            status = "reserved";
+        };
 };
