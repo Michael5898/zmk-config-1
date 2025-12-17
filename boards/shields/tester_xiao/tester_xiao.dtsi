@@ -1,6 +1,6 @@
 #include <dt-bindings/zmk/matrix_transform.h>
 #include <physical_layouts.dtsi>
-#include <layouts/tester_xiao/3x4.dtsi>   // include your 3x4 layout file
+#include </dts/layouts/tester_xiao/3x4.dtsi>   // include your 3x4 layout file
 
 &xiao_serial { status = "disabled"; };
 
