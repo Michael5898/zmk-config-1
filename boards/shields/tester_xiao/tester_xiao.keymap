@@ -7,8 +7,8 @@
         compatible = "zmk,keymap";
 
         default_layer {
+            display-name = "Base";
             bindings = <
-            //label = "default_layer";
                 //-----------------------------
                 //     empty   encoder1   encoder2
                 //

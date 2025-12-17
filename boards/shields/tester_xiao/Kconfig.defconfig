@@ -1,6 +1,9 @@
 if SHIELD_TESTER_XIAO
 
 config ZMK_KEYBOARD_NAME
+    default "tester_xiao"
+
+config ZMK_KEYBOARD_NAME
     default "Macropad"
 
 endif
