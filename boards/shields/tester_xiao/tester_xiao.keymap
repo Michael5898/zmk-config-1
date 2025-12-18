@@ -27,7 +27,7 @@
             >;
         };
 
-        num {  Layer 1
+        num {
             display-name = "NUM";
             bindings = <
             //label = "num";
