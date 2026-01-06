@@ -10,6 +10,7 @@
  / {
     chosen {
         zmk,kscan = &kscan0;
+        zmk,matrix-transform = &three_column_transform;
 //        zmk,physical-layout = &tester_xiao_layout;
     };
 
@@ -31,7 +32,7 @@
             ;
     };
 
-    transform0: keymap_transform {
+    three_column_transform: keymap_transform {
         compatible = "zmk,matrix-transform";
         columns = <3>;
         rows = <4>;
