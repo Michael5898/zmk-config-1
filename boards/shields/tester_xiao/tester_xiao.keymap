@@ -11,7 +11,7 @@
 //
 //  Copy        Paste     Cut
 //
-//  CTRL+SHFT+M CTRL+SHFT+D CTRL+Z
+//  CTRL+SHIFT+M CTRL+SHIFT+D CTRL+Z
 
 / {
     keymap {
