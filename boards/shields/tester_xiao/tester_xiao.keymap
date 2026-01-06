@@ -5,13 +5,13 @@
 #include <dt-bindings/zmk/kscan_mock.h>
 
 //-----------------------------
-//     empty   encoder1   encoder2
+//     Dead    C_Mute    TOGL LAYER 1
 //
-//  rew         play      skip
+//  Rewind      Play/Pause  Skip
 //
 //  Copy        Paste     Cut
 //
-//  HeadMuteDC  DC-Mute   Undo
+//  CTRL+SHFT+M CTRL+SHFT+D CTRL+Z
 
 / {
     keymap {
@@ -24,7 +24,7 @@
         &none         &kp C_MUTE    &tog 1
         &kp C_PREV    &kp C_PP      &kp C_NEXT
         &kp LC(C)     &kp LC(V)     &kp LC(X)
-        &studio_unlock &kp LC(LS(D)) &lt 2 LC(Z)
+        &kp LC(LS(M)) &kp LC(LS(D)) &kp LC(Z)
             >;
         };
 
