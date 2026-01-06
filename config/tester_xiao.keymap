@@ -49,13 +49,14 @@
             >;
         };
 
-    };
         extra1 {
             display-name = "extra1";
             status = "reserved";
         };
+
         extra2 {
             display-name = "extra2";
             status = "reserved";
         };
+    };
 };

@@ -2,7 +2,6 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/outputs.h>
-#include <dt-bindings/zmk/kscan_mock.h>
 
 //-----------------------------
 //     empty   encoder1   encoder2
@@ -50,13 +49,14 @@
             >;
         };
 
-    };
         extra1 {
             display-name = "extra1";
             status = "reserved";
         };
+
         extra2 {
             display-name = "extra2";
             status = "reserved";
         };
+    };
 };
