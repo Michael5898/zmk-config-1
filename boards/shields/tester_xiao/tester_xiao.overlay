@@ -10,7 +10,7 @@
  / {
     chosen {
         zmk,kscan = &kscan0;
-//        zmk,physical-layout = &tester_xiao_layout;
+        zmk,matrix-transform = &transform0;
     };
 
 
