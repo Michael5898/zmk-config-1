@@ -17,6 +17,8 @@ The macropad targets users who need **reliable hardware macros**, media control,
 * **2 incremental rotary encoders**, each with integrated push button
 * Matrix-based key scanning to minimize GPIO usage
 
+* **Pin-out is provided in /Resources/Pins.pdf**
+
 ### Controller
 
 * **XIAO nRF52840 Plus**
