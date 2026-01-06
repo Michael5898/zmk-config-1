@@ -93,6 +93,8 @@ The macropad targets users who need **reliable hardware macros**, media control,
 
 ## Keymap
 
+### Buttons
+
 |       | Collum 1    | Collum 2    | Collum 3    |
 |-------|-------------|-------------|-------------|
 | Row 1 | Dead        | C_Mute      | TOGL LAYER 1|
@@ -100,6 +102,14 @@ The macropad targets users who need **reliable hardware macros**, media control,
 | Row 3 | Copy        | Paste       | Cut         |
 | Row 4 | CTRL+SHFT+M | CTRL+SHFT+D | CTRL+Z      |
 
+### Encoders
+
+* **Encoder Left**
+  * Consumer Volume Up/Down
+* **Encoder Right**
+  * Page Up/Down
+
+---
 
 ## License
 
