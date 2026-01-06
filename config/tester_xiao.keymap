@@ -47,9 +47,9 @@
                 &bt BT_PRV  &none           &bt BT_NXT
                 &none       &none           &lt 2 LC(Z)
             >;
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
         };
 
-    };
         extra1 {
             display-name = "extra1";
             status = "reserved";
@@ -58,4 +58,5 @@
             display-name = "extra2";
             status = "reserved";
         };
+    };
 };
